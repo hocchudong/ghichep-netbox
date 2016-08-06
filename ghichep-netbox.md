@@ -9,6 +9,7 @@
 ##  Bước chuẩn bị
 - Môi trường cài đặt:
 	- Distro
+	
 		```sh
 		root@c-u14-ctl1:~# lsb_release -a
 		No LSB modules are available.
@@ -17,4 +18,3 @@
 		Release:        14.04
 		Codename:       trusty
 		```
-	- 
