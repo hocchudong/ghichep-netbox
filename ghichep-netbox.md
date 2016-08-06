@@ -22,7 +22,10 @@
 	- Network: 
 		
 		```sh
-		eth0: 172.16.69.221 | 255.255.255 | 172.16.69.1
+		eth0: 
+			IP: 172.16.69.221 
+			Subnetmask: 255.255.255 
+			Gateway: 172.16.69.1
 		```
 	
 ## Cài đặt database
@@ -36,17 +39,69 @@
 - Cấu hình postgresql sau khi cài đăt
 
 	```sh
-	# sudo -u postgres psql
-	psql (9.3.13)
-	Type "help" for help.
-
-	postgres=# CREATE DATABASE netbox;
-	CREATE DATABASE
-	postgres=# CREATE USER netbox WITH PASSWORD 'J5brHrAXFLQSif0K';
-	CREATE ROLE
-	postgres=# GRANT ALL PRIVILEGES ON DATABASE netbox TO netbox;
-	GRANT
-	postgres=# \q
+	sudo -u postgres psql
+	CREATE DATABASE netbox;
+	CREATE USER netbox WITH PASSWORD 'Hcd@2016';
+	GRANT ALL PRIVILEGES ON DATABASE netbox TO netbox;
+	\q
 	```
+	
+## Cài đặt NetBox
+- Cài đặt các gói cần thiết cho NetBox
+	
+	```sh
+	sudo apt-get install -y python2.7 python-dev git python-pip libxml2-dev libxslt1-dev libffi-dev graphviz libpq-dev
+	```
+
+- Tạo thư mục
+
+	```sh
+	mkdir -p /opt/netbox/
+	cd /opt/netbox/
+	```
+	
+- Tải NetBox
+
+	```sh
+	git clone -b master https://github.com/digitalocean/netbox.git  .
+	```
+	
+- Cài đặt 
+	
+	```sh
+	sudo pip install -r requirements.txt
+	```
+	
+- Copy file cấu hình 
+
+	```sh
+	cd netbox/netbox/
+	cp configuration.example.py configuration.py
+	```
+	
+- Sửa các dòng trong file ` ... ` như sau
+
+```sh
+ALLOWED_HOSTS
+DATABASE
+SECRET_KEY
+```
+
+- Tiếp
+	
+	
+	
+	
+	
+	
+	
+	
+Welcome123
+Hcd@2016
+
+	
+	
+	
+	
 	
 	
