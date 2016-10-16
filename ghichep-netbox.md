@@ -85,13 +85,13 @@
     /opt/netbox/netbox/generate_secret_key.py
     ```
 	
--Mở file `/opt/netbox/netbox/netbox/configuration.py` và sửa theo hướng dẫn dưới. Sửa trong 03 dòng dưới.
+- Mở file `/opt/netbox/netbox/netbox/configuration.py` và sửa theo hướng dẫn dưới. Sửa trong 03 dòng dưới.
 
-```sh
-ALLOWED_HOSTS
-DATABASE
-SECRET_KEY
-```
+    ```sh
+    ALLOWED_HOSTS
+    DATABASE
+    SECRET_KEY
+    ```
 
     - Khai báo dòng `ALLOWED_HOSTS`
     
