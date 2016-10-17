@@ -76,7 +76,6 @@
 
 	```sh
 	cp /opt/netbox/netbox/netbox/configuration.example.py /opt/netbox/netbox/netbox/configuration.py 
-	cp configuration.example.py configuration.py
 	```
 
 - Thực thi file dưới và chép kết quả hiển thị để dùng cho khai báo dưới 
@@ -175,7 +174,7 @@
 - Kiểm tra ứng dụng
 
     ```sh
-    ./manage.py runserver 0.0.0.0:8000 --insecure
+    ./manage.py runserver 172.16.69.27:8000 --insecure
     ```
     
     - Kết quả như dưới là thành công rồi nhé.
@@ -240,7 +239,24 @@
     service apache2 restart
     ```
 
-- 
+- Tạo file `/opt/netbox/gunicorn_config.py`
+
+    ```sh
+    command = '/usr/bin/gunicorn'
+    pythonpath = '/opt/netbox/netbox'
+    bind = '127.0.0.1:8001'
+    workers = 3
+    user = 'www-data'
+    ```
+    
+- Tạo file `/etc/supervisor/conf.d/netbox.conf`
+
+    ```sh
+    [program:netbox]
+    command = gunicorn -c /opt/netbox/gunicorn_config.py netbox.wsgi
+    directory = /opt/netbox/netbox/
+    user = www-data
+    ```
 
 Welcome123
 
