@@ -1,4 +1,4 @@
-# Ghi chép cài đặt Netbox
+# Ghi chép cài đặt Netbox 1
 
 - Các ghi chép khi cài đặt ứng dụng NetBox
 - Tham khảo:
